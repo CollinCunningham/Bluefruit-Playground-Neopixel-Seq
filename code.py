@@ -62,7 +62,6 @@ def pulse(pixels, colors, frame, reverse, wait):
 
     #invert frame index if we're animating in reverse
     if reverse == True:
-        #print("reverse is true")
         idx = (num_pixels - 1) - frame
 
     for i in range(num_pixels):
@@ -83,7 +82,6 @@ def sizzle(pixels, colors, frame, reverse, wait):
 
     #invert odd led frame index if we're animating in reverse
     if reverse == True:
-        #print("reverse is true")
         even_index = frame
         odd_index = (num_pixels - 1) - frame
 
@@ -99,7 +97,6 @@ def sizzle(pixels, colors, frame, reverse, wait):
             pixels[i] = colors[odd_index]
 
     if frame == (num_pixels-1):
-        #print("reverse")
         reverse = not reverse
 
     pixels.show()
