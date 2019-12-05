@@ -1,4 +1,5 @@
-"""Bluefruit Playground app animations"""
+"""Bluefruit Playground app animation test"""
+
 import board
 import time
 import neopixel
@@ -38,6 +39,7 @@ def rotate(pixels, colors, frame, wait):
         pixels[i] = colors[color_index]
 
     pixels.show()
+
     time.sleep(wait)
 
 
@@ -47,11 +49,13 @@ def sweep(pixels, colors, frame, wait):
         color_index = frame + i
         if color_index >= num_pixels:
             color_index -= num_pixels
+        # set left side
         pixels[i] = colors[color_index]
+        # set right side
         pixels[9-i] = colors[color_index]
-        # 0 & 9, 1 & 8, 2 & 7
 
     pixels.show()
+
     time.sleep(wait)
 
 
@@ -74,6 +78,7 @@ def pulse(pixels, colors, frame, reverse, wait):
         reverse = not reverse
 
     time.sleep(wait)
+
     return reverse
 
 
@@ -101,11 +106,14 @@ def sizzle(pixels, colors, frame, reverse, wait):
         reverse = not reverse
 
     pixels.show()
+
     time.sleep(wait)
+
     return reverse
 
 
 def print_hex(colors):
+
     print("(", end = "")
     for c in colors:
         print('0x%02x%02x%02x' % c, end = ", ")
